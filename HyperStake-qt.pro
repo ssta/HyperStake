@@ -135,7 +135,7 @@ contains( SSE2_SUPPORT, 1 ) {
     message("No SSE2 detected, skipping -msse2 flag")
 }
 
-QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
+QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector -Werror
 
 # Input
 DEPENDPATH += src src/json src/qt

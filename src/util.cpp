@@ -490,7 +490,9 @@ long hex2long(const char* hexString)
 
 	while (*hexString && ret >= 0) 
 	{
-		ret = (ret << 4) | hextable[*hexString++];
+        // ssta -- HyperStake.  Cast the char to an int to remove cvhar subscript warning
+        // 20141126
+        ret = (ret << 4) | hextable[(int)(*hexString++)];
 	}
 
 	return ret; 

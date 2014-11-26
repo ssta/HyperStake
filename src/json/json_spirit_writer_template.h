@@ -28,7 +28,9 @@ namespace json_spirit
     template< class String_type >
     String_type non_printable_to_string( unsigned int c )
     {
-        typedef typename String_type::value_type Char_type;
+        // ssta -- HyperStake - removed to remove unused typedef warning
+        // 20141126
+        //typedef typename String_type::value_type Char_type;
 
         String_type result( 6, '\\' );
 

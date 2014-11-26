@@ -65,6 +65,11 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             setWindowTitle(tr("Change passphrase"));
             ui->warningLabel->setText(tr("Enter the old and new passphrase to the wallet."));
             break;
+        case UnlockMinting:
+            // add an empty case to avoid the compiler warning.
+            // This is not ideal,  but maintains current functionality (bugs and all)
+            // ssta -- 20141126
+            break;
     }
 
     textChanged();
@@ -198,6 +203,11 @@ void AskPassphraseDialog::accept()
                                  tr("The supplied passphrases do not match."));
         }
         break;
+    case UnlockMinting:
+        // add an empty case to avoid the compiler warning.
+        // This is not ideal,  but maintains current functionality (bugs and all)
+        // ssta -- 20141126
+        break;
     }
 }
 
@@ -217,6 +227,11 @@ void AskPassphraseDialog::textChanged()
         break;
     case ChangePass: // Old passphrase x1, new passphrase x2
         acceptable = !ui->passEdit1->text().isEmpty() && !ui->passEdit2->text().isEmpty() && !ui->passEdit3->text().isEmpty();
+        break;
+    case UnlockMinting:
+        // add an empty case to avoid the compiler warning.
+        // This is not ideal,  but maintains current functionality (bugs and all)
+        // ssta -- 20141126
         break;
     }
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(acceptable);
